@@ -1,0 +1,8 @@
+- name: Create application users
+  user:
+    name: "{{ item }}"
+    shell: /bin/bash
+    create_home: yes
+  loop:
+    - pabx_user
+    - recording_user

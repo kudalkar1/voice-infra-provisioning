@@ -1,0 +1,16 @@
+- name: Install mailx for alerting
+  yum:
+    name: mailx
+    state: present
+
+- name: Check Apache status
+  shell: systemctl is-active httpd
+  register: httpd_status
+  ignore_errors: yes
+
+- name: Send alert if Apache is down
+  mail:
+    to: "admin@example.com"
+    subject: "Apache service is DOWN"
+    body: "Apache is not running on {{ inventory_hostname }}"
+  when: httpd_status.rc != 0
