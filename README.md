@@ -27,10 +27,10 @@ cd terraform
 terraform init
 
 2. Plan:
-terraform plan -var "key_name=<YOUR_KEY_PAIR>"
+terraform plan -var "key_name=<KEY_PAIR>"
 
 3. Apply:
-terraform apply -var "key_name=<YOUR_KEY_PAIR>"
+terraform apply -var "key_name=<KEY_PAIR>"
 
 
 
